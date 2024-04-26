@@ -7,6 +7,7 @@ import Profile from "../Screens/Profile";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import HomeNavigation from "./HomeNavigation";
 
 const Tab = createBottomTabNavigator();
 export default function TabNavigation() {
@@ -14,7 +15,7 @@ export default function TabNavigation() {
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeNavigation}
         options={{
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="home" size={size} color={color} />
