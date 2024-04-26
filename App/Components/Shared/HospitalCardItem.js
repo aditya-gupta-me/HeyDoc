@@ -13,11 +13,15 @@ export default function HospitalCardItem({ hospital }) {
             <View style={styles.container2}>
                 <Text style={styles.hospitalName}>{hospital.attributes.Name}</Text>
                 <FlatList
-                data={hospital.attributes.Categories.data}
-                horizontal={true}
-                renderItem={({item})=>(
-                    <Text style={styles.categoryName}>{item.attributes.Name},</Text>
-                )}
+                    data={hospital.attributes.Categories.data}
+                    horizontal={true}
+                    renderItem={({ item, index }) => (
+                        <Text style={styles.categoryName}>
+                            {item.attributes.Name}
+                            {index !== hospital.attributes.Categories.data.length - 1 && ","}
+                        </Text>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
                 />
                 <View style={styles.container3}></View>
                 <View style={styles.container4}>
@@ -33,17 +37,19 @@ const styles = StyleSheet.create({
     container1:{
         marginTop: 25,
         marginLeft: 10,
+        borderRadius: 10,
     },
     container2: {
         padding: 10,
-        width: '92.5%',
+        width: '90.6%',
         backgroundColor: Colors.white,
-        borderRadius: 10,
         marginBottom: 20,
         marginTop:0,
-        marginLeft:1.25,
+        marginLeft: 4,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
+        borderWidth: 1,
+        borderColor: Colors.lightGray,
     },
     container3:{
         borderBottomWidth: 1,
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
         fontFamily: "outfitSemiBold",
     },
     categoryName:{
-        marginRight: 10,
+        marginRight: 5,
         color: Colors.otherGray,
         fontFamily: 'outfitLight',
 

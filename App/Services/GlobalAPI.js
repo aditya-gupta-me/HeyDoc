@@ -24,9 +24,15 @@ const getHospitalsByCategory = (category) =>
         "hospitals?filters[Categories][Name][$in]=" + category + "&populate=*"
     );
 
+const getDoctorLists = (category) =>
+    AxiosInstance.get(
+        "doctors?filters[Categories][Name][$in]=" + category + "&populate=*"
+    );
+
 export default {
     getSlider,
     getCategories,
     getPremiumHospitals,
     getHospitalsByCategory,
+    getDoctorLists,
 };

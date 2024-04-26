@@ -6,27 +6,30 @@ import HospitalDoctorTab from "../Components/HospitalDoctorsScreen/HospitalDocto
 import HospitalListBig from "../Components/HospitalDoctorsScreen/HospitalListBig";
 import GlobalAPI from "../Services/GlobalAPI";
 import Colors from "../../assets/Shared/Colors";
+import DoctorCardItem from "./DoctorCardItem";
 
 export default function HospitalDoctorsListScreen() {
     const [hospitalList, setHospitalList] = useState([]);
     const param = useRoute().params;
-
+    const [activeTab, setActiveTab] = useState('Hospital');
     useEffect(() => {
         getHospitalsByCategory();
     }, []);
     const getHospitalsByCategory = () => {
-        GlobalAPI.getHospitalsByCategory("Dentist").then((res) => {
+        GlobalAPI.getHospitalsByCategory(param?.categoryName).then((res) => {
             setHospitalList(res.data.data);
         });
     };
     return (
         <View style={styles.container}>
             <PageHeader title={param?.categoryName} />
-            <HospitalDoctorTab />
+            <HospitalDoctorTab activeTab={(value)=> setActiveTab(value)}/>
             {!hospitalList?.length ? 
-                <ActivityIndicator size={"large"} color={Colors.dodgerBlue} />
+                <ActivityIndicator size={"large"} color={Colors.dodgerBlue} style={{marginTop: '80%', marginRight: '2.5%',}} />
              : 
+             activeTab=='Hospital'?
                 <HospitalListBig hospitalList={hospitalList}/>
+            :  <DoctorCardItem/>
             }
         </View>
     );

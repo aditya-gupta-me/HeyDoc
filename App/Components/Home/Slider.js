@@ -22,7 +22,7 @@ export default function Slider() {
     }, [])
     const getSlider = () => {
         GlobalAPI.getSlider().then(res => {
-            console.log(res.data.data);
+            // console.log(res.data.data);
             setSliderList(res.data.data)
         })
     }

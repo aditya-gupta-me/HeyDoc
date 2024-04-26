@@ -2,13 +2,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import Colors from "../../../assets/Shared/Colors";
 
-export default function HospitalDoctorTab() {
+export default function HospitalDoctorTab({activeTab}) {
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
                 <TouchableOpacity
-                    onPress={() => setActiveIndex(0)}
+                    onPress={() => {setActiveIndex(0); activeTab('Hospital')}}
                     style={[activeIndex == 0 ? styles.activeTab : styles.inActiveTab]}
                 >
                     <Text
@@ -20,7 +20,7 @@ export default function HospitalDoctorTab() {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => setActiveIndex(1)}
+                    onPress={() => {setActiveIndex(1); activeTab('Doctor')}}
                     style={[activeIndex == 1 ? styles.activeTab : styles.inActiveTab]}
                 >
                     <Text
