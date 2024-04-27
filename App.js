@@ -7,6 +7,7 @@ import Home from "./App/Screens/Home";
 import TabNavigation from "./App/Navigations/TabNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+import WelcomeScreen from "./App/Screens/WelcomeScreen";
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -14,6 +15,7 @@ export default function App() {
     outfitRegular: require("./assets/fonts/Outfit-Regular.ttf"),
     outfitSemiBold: require("./assets/fonts/Outfit-SemiBold.ttf"),
     outfitBold: require("./assets/fonts/Outfit-Bold.ttf"),
+    welcomeFont: require("./assets/fonts/CedarvilleCursive-Regular.ttf"),
   });
   if(!fontsLoaded){
     return null
@@ -32,7 +34,7 @@ export default function App() {
           </NavigationContainer>
         </SignedIn>
         <SignedOut>
-          <Login />
+          <Login/>
         </SignedOut>
       </SafeAreaView>
     </ClerkProvider>

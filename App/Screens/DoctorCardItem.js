@@ -4,10 +4,10 @@ import {
     StyleSheet,
     Image,
     FlatList,
+    TouchableOpacity
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import GlobalAPI from "../Services/GlobalAPI";
 import Colors from "../../assets/Shared/Colors";
 

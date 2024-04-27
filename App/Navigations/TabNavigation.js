@@ -3,11 +3,12 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../Screens/Home";
 import Appointment from "../Screens/Appointment";
-import Profile from "../Screens/Profile";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import HomeNavigation from "./HomeNavigation";
+import Explore from "../Screens/Explore";
+import Settings from "../Screens/Settings";
 
 const Tab = createBottomTabNavigator();
 export default function TabNavigation() {
@@ -19,6 +20,15 @@ export default function TabNavigation() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Explore"
+        component={Explore}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="hospital-user" size={22} color={color} />
           ),
         }}
       />
@@ -36,8 +46,8 @@ export default function TabNavigation() {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Settings"
+        component={Settings}
         options={{
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="setting" size={size} color={color} />

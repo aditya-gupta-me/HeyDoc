@@ -1,12 +1,12 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import PageHeader from "../Components/Shared/PageHeader";
 import HospitalInfo from "../Components/HospitalDetail/HospitalInfo";
 import Colors from "../../assets/Shared/Colors";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 export default function HospitalDetails() {
+    const navigation = useNavigation();
     const param = useRoute().params;
     const hospital = param.hospital;
     return (
@@ -28,7 +28,9 @@ export default function HospitalDetails() {
                         </View>
                     </View>
                 </ScrollView>
-                <TouchableOpacity style={styles.bookAppointmentButton}>
+                <TouchableOpacity style={styles.bookAppointmentButton} onPress={()=> navigation.navigate('book-appointment',{
+                    hospital: hospital
+                })}>
                     <Text style={styles.bookAppointmentText}>Book Appointment</Text>
                 </TouchableOpacity>
             </View>

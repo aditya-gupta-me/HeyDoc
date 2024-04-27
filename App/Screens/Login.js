@@ -42,11 +42,12 @@ const styles = StyleSheet.create({
   },
   headings: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontFamily: 'outfitBold',
   },
   appDescription: {
     textAlign: "center",
     marginTop: 20,
+    fontFamily: 'outfitRegular',
   },
   loginButton: {
     padding: 16,

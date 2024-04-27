@@ -3,13 +3,13 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function PageHeader({ title }) {
+export default function PageHeader({ title, backButton=true }) {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=> navigation.goBack()}>
+            {backButton?<TouchableOpacity onPress={()=> navigation.goBack()}>
                 <Ionicons name="arrow-back-circle-outline" size={33} color="black" />
-            </TouchableOpacity>
+            </TouchableOpacity>: null}
             <Text style={styles.doctorCategory}>{title}</Text>
         </View>
     );
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
     doctorCategory: {
         marginLeft:5,
         fontSize: 25,
-        fontFamily: "outfitSemiBold",
+        fontFamily: 'outfitSemiBold',
     },
 });

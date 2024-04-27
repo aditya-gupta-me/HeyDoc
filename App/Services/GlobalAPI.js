@@ -29,10 +29,26 @@ const getDoctorLists = (category) =>
         "doctors?filters[Categories][Name][$in]=" + category + "&populate=*"
     );
 
+const createAppointment = (data) => AxiosInstance.post("/appointments", data);
+
+const getAllHospitals = () => AxiosInstance.get("hospitals?populate=*");
+
+const getAllDoctors = () => AxiosInstance.get("doctors?populate=*");
+
+const getUsersAppointments = (email) =>
+    AxiosInstance.get(
+        "appointments?filters[email][$eq]=" + email + "&populate=*"
+    );
+
 export default {
     getSlider,
     getCategories,
     getPremiumHospitals,
     getHospitalsByCategory,
     getDoctorLists,
+    createAppointment,
+    getAllHospitals,
+    getAllDoctors,
+    getUsersAppointments,
+
 };

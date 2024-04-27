@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "smart-health-consulting-system",
+    "scheme": "smart-health-consulting-system",
     "slug": "smart-health-consulting-system",
     "version": "1.0.0",
     "orientation": "portrait",

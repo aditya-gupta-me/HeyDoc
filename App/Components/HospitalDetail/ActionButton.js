@@ -58,6 +58,7 @@ export default function ActionButton() {
 const styles = StyleSheet.create({
     container1:{
         marginTop: 15,
+        marginBottom: 15,
 
 
     },
@@ -71,6 +72,6 @@ const styles = StyleSheet.create({
     iconText:{
         fontFamily: 'outfitSemiBold',
         marginTop: 5,
-        
+
     },
 })
