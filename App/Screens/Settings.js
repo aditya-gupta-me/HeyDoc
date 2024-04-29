@@ -14,10 +14,12 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import { useUser } from "@clerk/clerk-expo";
 import Colors from "../../assets/Shared/Colors";
 import { useAuth } from "@clerk/clerk-expo";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Example() {
   const { user } = useUser();
   const { isLoaded, signOut } = useAuth();
+  const navigation = useNavigation();
   const [form, setForm] = useState({
     darkMode: false,
     emailNotifications: true,
@@ -49,7 +51,7 @@ export default function Example() {
 
             <TouchableOpacity
               onPress={() => {
-                // handle onPress
+                navigation.navigate('edit-profile')
               }}
             >
               <View style={styles.profileAction}>

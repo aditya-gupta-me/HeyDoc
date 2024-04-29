@@ -6,8 +6,14 @@ import { Ionicons } from "@expo/vector-icons";
 import moment from "moment";
 
 export default function AppointmentCardItem({ appointment }) {
+    const isPastAppointment = moment(appointment.attributes.Date).isBefore(moment(), 'day');
+    const subheadingText = isPastAppointment ? 'Previous Appointment' : 'Upcoming Appointment';
+    const subheadingColor = isPastAppointment ? Colors.lightGray : Colors.dodgerBlue;
+
     return (
         <View style={styles.container}>
+            <Text style={[styles.subheading, { color: subheadingColor }]}>{subheadingText}</Text>
+            <Text style ={styles.appointmentIdText}>Appointment ID: #{appointment.id}</Text>
             <Text style={styles.appointmentSchedule}>
                 <Ionicons name="calendar" size={15} color={Colors.dodgerBlue} /> 
                 {moment(appointment.attributes.Date).format("  MMM Do, YYYY")} -{" "}
@@ -50,15 +56,24 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         marginTop: 15,
     },
+    subheading: {
+        fontSize: 16,
+        fontFamily: 'outfitBold',
+        marginBottom: 5,
+    },
     container2: {
         display: "flex",
         flexDirection: "row",
         gap: 10,
         alignItems: "center",
     },
+    appointmentIdText:{
+        fontSize: 13,
+        fontFamily: 'outfitSemiBold'
+    },
     appointmentSchedule: {
         fontSize: 13,
-        fontFamily: "outfitSemiBold",
+        fontFamily: "outfitRegular",
         marginTop: 10,
     },
     hospitalName: {

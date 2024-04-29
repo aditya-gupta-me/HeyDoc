@@ -17,7 +17,7 @@ export default function Header() {
         />
         <View>
           <Text style={styles.greetingText}>Hello,👋🏻</Text>
-          <Text style={styles.userName}>{user.fullName}</Text>
+          <Text style={styles.userName}>{user.firstName}</Text>
         </View>
       </View>
       <Ionicons name="notifications-outline" size={24} color="black" />

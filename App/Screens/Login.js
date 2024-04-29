@@ -1,4 +1,10 @@
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import React from "react";
 import app from "./../../assets/images/loginPage.png";
 import Colors from "../../assets/Shared/Colors";
@@ -14,7 +20,7 @@ export default function Login() {
         <Text style={styles.appDescription}>
           Book Appointments Effortlessly and manage your health journey
         </Text>
-        <SignInWithOAuth/>
+        <SignInWithOAuth/>    
       </View>
     </View>
   );
@@ -42,12 +48,12 @@ const styles = StyleSheet.create({
   },
   headings: {
     fontSize: 28,
-    fontFamily: 'outfitBold',
+    fontFamily: "outfitBold",
   },
   appDescription: {
     textAlign: "center",
     marginTop: 20,
-    fontFamily: 'outfitRegular',
+    fontFamily: "outfitRegular",
   },
   loginButton: {
     padding: 16,
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("screen").width * 0.8,
   },
   loginButtonText: {
-    fontSize: 17,
+    fontSize: 19,
     color: Colors.white,
   },
 });

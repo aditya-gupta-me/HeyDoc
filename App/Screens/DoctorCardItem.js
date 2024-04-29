@@ -4,25 +4,33 @@ import {
     StyleSheet,
     Image,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    ToastAndroid
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import GlobalAPI from "../Services/GlobalAPI";
 import Colors from "../../assets/Shared/Colors";
 
 export default function DoctorCardItem() {
     const [doctorList, setDoctorList] = useState([]);
     const param = useRoute().params;
+    const navigation = useNavigation();
 
     useEffect(() => {
         getDoctorLists();
     }, []);
+
     const getDoctorLists = () => {
         GlobalAPI.getDoctorLists(param?.categoryName).then((res) => {
             setDoctorList(res.data.data);
         });
     };
+
+    const showToast = () => {
+        ToastAndroid.show("Book Appointment Through Hospital Only", ToastAndroid.SHORT);
+    };
+
     return (
         <View style={styles.container}>
             {doctorList.map((doctor, index) => (
@@ -44,8 +52,8 @@ export default function DoctorCardItem() {
                             {doctor.attributes.Years_of_Experience}
                         </Text>
                     </View>
-                    <TouchableOpacity style={styles.appointmentButton}>
-                        <Text style={styles.appointmentText}>Make an Appointment</Text>
+                    <TouchableOpacity style={styles.appointmentButton} onPress={showToast}>
+                        <Text style={styles.appointmentText}>Available Now</Text>
                     </TouchableOpacity>
                 </View>
             ))}
