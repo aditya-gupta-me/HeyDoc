@@ -1,10 +1,10 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import Colors from "../../../assets/Shared/Colors";
 
 export default function HospitalItem({ hospital }) {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image
                 source={{ uri: hospital.attributes.Image.data.attributes.url }}
                 style={styles.image}
@@ -14,7 +14,7 @@ export default function HospitalItem({ hospital }) {
                 <Text style={styles.hospitalAddress}>{hospital.attributes.Address}</Text>
 
             </View>
-        </View>
+        </ScrollView>
     );
 }
 

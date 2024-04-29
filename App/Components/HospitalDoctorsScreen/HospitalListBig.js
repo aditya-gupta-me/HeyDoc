@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
 import React from "react";
 import HospitalCardItem from "../Shared/HospitalCardItem";
 import { useNavigation } from "@react-navigation/native";
@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function HospitalListBig({ hospitalList }) {
     const navigation = useNavigation();
     return (
-        <View>
+        <ScrollView>
             <FlatList
                 data={hospitalList}
                 renderItem={({ item }) => (
@@ -19,6 +19,9 @@ export default function HospitalListBig({ hospitalList }) {
                     </TouchableOpacity>
                 )}
             />
-        </View>
+        </ScrollView>
     );
 }
+
+
+

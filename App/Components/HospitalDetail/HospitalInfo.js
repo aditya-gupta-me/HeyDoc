@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import React from "react";
 import Colors from "../../../assets/Shared/Colors";
 import { Ionicons } from "@expo/vector-icons";
@@ -9,7 +9,7 @@ import SubHeading from "../Home/SubHeading";
 export default function HospitalInfo({ hospital }) {
     return (
         hospital && (
-            <View>
+            <ScrollView>
                 <Text style={styles.hospitalName}>{hospital.attributes.Name}</Text>
                 <FlatList
                     data={hospital.attributes.Categories.data}
@@ -37,7 +37,7 @@ export default function HospitalInfo({ hospital }) {
                 <View style={styles.container6}></View>
                 <SubHeading subHeadingTitle={'About'}/>
                 <Text style={styles.hospitalDescription}>{hospital.attributes.Description}</Text>
-            </View>
+            </ScrollView>
         )
     );
 }

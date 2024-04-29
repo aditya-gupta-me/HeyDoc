@@ -6,6 +6,7 @@ import {
     TextInput,
     TouchableOpacity,
     ToastAndroid,
+    ScrollView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Colors from "../../../assets/Shared/Colors";

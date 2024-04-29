@@ -5,16 +5,17 @@ import AppointmentHospitalInfo from '../BookAppointment/AppointmentHospitalInfo'
 import ActionButton from './ActionButton';
 import HorizontalLine from '../Shared/HorizontalLine';
 import BookingSection from '../BookAppointment/BookingSection';
+import { ScrollView } from 'react-native';
 
 export default function BookAppointment() {
     const param  = useRoute().params;
   return (
-    <View style={styles.container1}>
+    <ScrollView style={styles.container1}>
       <AppointmentHospitalInfo hospital={param.hospital}/>
       <ActionButton/>
       <HorizontalLine/>
       <BookingSection hospital={param.hospital}/>
-    </View>
+    </ScrollView>
   )
 }
 

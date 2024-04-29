@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import React, { useState } from "react";
 import Colors from "../../../assets/Shared/Colors";
 
 export default function HospitalDoctorTab({activeTab}) {
     const [activeIndex, setActiveIndex] = useState(0);
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.container2}>
                 <TouchableOpacity
                     onPress={() => {setActiveIndex(0); activeTab('Hospital')}}
@@ -32,13 +32,14 @@ export default function HospitalDoctorTab({activeTab}) {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         marginTop: 10,
+        
     },
     container2: {
         display: "flex",
